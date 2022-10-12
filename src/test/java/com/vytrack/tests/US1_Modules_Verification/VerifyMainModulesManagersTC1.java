@@ -11,7 +11,7 @@ import org.testng.annotations.Test;
 
 import java.util.concurrent.TimeUnit;
 
-public class VerifyMainModulesStoreManagerTC1 {
+public class VerifyMainModulesManagersTC1 {
     WebDriver driver;
 
     @BeforeMethod
