@@ -36,35 +36,35 @@ public class VerifyMainModulesManagersTC1 {
         //1) Dashboards:
         WebElement verifyDashboards = driver.findElement(By.xpath("(//span[@class='title title-level-1'])[1]"));
         // verifyDashboards.isDisplayed();
-        Assert.assertTrue(verifyDashboards.isDisplayed());
+        Assert.assertTrue(verifyDashboards.isDisplayed(), "Verify managers can see 8 modules FAILED!");
 
         //2) Fleet:
         WebElement verifyFleets = driver.findElement(By.xpath("(//span[@class='title title-level-1'])[2]"));
-        Assert.assertTrue(verifyFleets.isDisplayed());
+        Assert.assertTrue(verifyFleets.isDisplayed(), "Verify managers can see 8 modules FAILED!");
 
         //3) Customers:
         WebElement verifyCustomer = driver.findElement(By.xpath("(//span[@class='title title-level-1'])[3]"));
-        Assert.assertTrue(verifyCustomer.isDisplayed());
+        Assert.assertTrue(verifyCustomer.isDisplayed(), "Verify managers can see 8 modules FAILED!");
 
         //4) Sales:
         WebElement verifySales = driver.findElement(By.xpath("(//span[@class='title title-level-1'])[4]"));
-        Assert.assertTrue(verifySales.isDisplayed());
+        Assert.assertTrue(verifySales.isDisplayed(), "Verify managers can see 8 modules FAILED!");
 
         //5) Activities:
         WebElement verifyActivities = driver.findElement(By.xpath("(//span[@class='title title-level-1'])[5]"));
-        Assert.assertTrue(verifyActivities.isDisplayed());
+        Assert.assertTrue(verifyActivities.isDisplayed(), "Verify managers can see 8 modules FAILED!");
 
         //6) Marketing:
         WebElement verifyMarketing = driver.findElement(By.xpath("(//span[@class='title title-level-1'])[6]"));
-        Assert.assertTrue(verifyMarketing.isDisplayed());
+        Assert.assertTrue(verifyMarketing.isDisplayed(), "Verify managers can see 8 modules FAILED!");
 
         //7) Reports & Segments:
         WebElement verifyRepAndSeg = driver.findElement(By.xpath("(//span[@class='title title-level-1'])[7]"));
-        Assert.assertTrue(verifyRepAndSeg.isDisplayed());
+        Assert.assertTrue(verifyRepAndSeg.isDisplayed(), "Verify managers can see 8 modules FAILED!");
 
         //8) System:
         WebElement verifySystem = driver.findElement(By.xpath("(//span[@class='title title-level-1'])[8]"));
-        Assert.assertTrue(verifySystem.isDisplayed());
+        Assert.assertTrue(verifySystem.isDisplayed(), "Verify managers can see 8 modules FAILED!");
 
     }
     @Test
@@ -82,35 +82,35 @@ public class VerifyMainModulesManagersTC1 {
         //1) Dashboards:
         WebElement verifyDashboards = driver.findElement(By.xpath("(//span[@class='title title-level-1'])[1]"));
         // verifyDashboards.isDisplayed();
-        Assert.assertTrue(verifyDashboards.isDisplayed());
+        Assert.assertTrue(verifyDashboards.isDisplayed(), "Verify managers can see 8 modules FAILED!");
 
         //2) Fleet:
         WebElement verifyFleets = driver.findElement(By.xpath("(//span[@class='title title-level-1'])[2]"));
-        Assert.assertTrue(verifyFleets.isDisplayed());
+        Assert.assertTrue(verifyFleets.isDisplayed(),"Verify managers can see 8 modules FAILED!");
 
         //3) Customers:
         WebElement verifyCustomer = driver.findElement(By.xpath("(//span[@class='title title-level-1'])[3]"));
-        Assert.assertTrue(verifyCustomer.isDisplayed());
+        Assert.assertTrue(verifyCustomer.isDisplayed(), "Verify managers can see 8 modules FAILED!");
 
         //4) Sales:
         WebElement verifySales = driver.findElement(By.xpath("(//span[@class='title title-level-1'])[4]"));
-        Assert.assertTrue(verifySales.isDisplayed());
+        Assert.assertTrue(verifySales.isDisplayed(), "Verify managers can see 8 modules FAILED!");
 
         //5) Activities:
         WebElement verifyActivities = driver.findElement(By.xpath("(//span[@class='title title-level-1'])[5]"));
-        Assert.assertTrue(verifyActivities.isDisplayed());
+        Assert.assertTrue(verifyActivities.isDisplayed(), "Verify managers can see 8 modules FAILED!");
 
         //6) Marketing:
         WebElement verifyMarketing = driver.findElement(By.xpath("(//span[@class='title title-level-1'])[6]"));
-        Assert.assertTrue(verifyMarketing.isDisplayed());
+        Assert.assertTrue(verifyMarketing.isDisplayed(), "Verify managers can see 8 modules FAILED!");
 
         //7) Reports & Segments:
         WebElement verifyRepAndSeg = driver.findElement(By.xpath("(//span[@class='title title-level-1'])[7]"));
-        Assert.assertTrue(verifyRepAndSeg.isDisplayed());
+        Assert.assertTrue(verifyRepAndSeg.isDisplayed(), "Verify managers can see 8 modules FAILED!");
 
         //8) System:
         WebElement verifySystem = driver.findElement(By.xpath("(//span[@class='title title-level-1'])[8]"));
-        Assert.assertTrue(verifySystem.isDisplayed());
+        Assert.assertTrue(verifySystem.isDisplayed(), "Verify managers can see 8 modules FAILED!");
 
     }
 
