@@ -35,24 +35,24 @@ public class VerifyMainModulesTruckDriverTC2 {
         // Step 2 - Verify drivers should view 4 modules names:
         //1) Fleet:
         WebElement verifyFleets = driver.findElement(By.xpath("(//span[@class='title title-level-1'])[1]"));
-        Assert.assertTrue(verifyFleets.isDisplayed());
+        Assert.assertTrue(verifyFleets.isDisplayed(), "Verify truck driver can see modules FAILED!");
 
         //2) Customers:
         WebElement verifyCustomer = driver.findElement(By.xpath("(//span[@class='title title-level-1'])[2]"));
-        Assert.assertTrue(verifyCustomer.isDisplayed());
+        Assert.assertTrue(verifyCustomer.isDisplayed(), "Verify truck driver can see modules FAILED!");
 
         //3) Activities:
         WebElement verifyActivities = driver.findElement(By.xpath("(//span[@class='title title-level-1'])[3]"));
-        Assert.assertTrue(verifyActivities.isDisplayed());
+        Assert.assertTrue(verifyActivities.isDisplayed(), "Verify truck driver can see modules FAILED!");
 
         //4) System:
         WebElement verifySystem = driver.findElement(By.xpath("(//span[@class='title title-level-1'])[4]"));
-        Assert.assertTrue(verifySystem.isDisplayed());
+        Assert.assertTrue(verifySystem.isDisplayed(), "Verify truck driver can see modules FAILED!");
     }
 
     @AfterMethod
     public void TearDownMethod() {
         driver.quit();
     }
-    
+
 }
