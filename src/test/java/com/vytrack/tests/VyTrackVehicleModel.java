@@ -42,6 +42,7 @@ public class VyTrackVehicleModel {
             fleetButton.click();
             WebElement vehicles_model = driver.findElement(By.xpath("//a[.='Vehicles Model']"));
             vehicles_model.click();
+
             List<WebElement> allElements = driver.findElements(By.xpath("//span[@class='grid-header-cell__label']"));
             for (WebElement eachElement : allElements) {
                 eachElement.isDisplayed();
