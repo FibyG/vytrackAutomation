@@ -1,6 +1,8 @@
 package com.vytrack.utilities;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 
 public class BrowserUtils {
@@ -24,4 +26,17 @@ public class BrowserUtils {
         String actualTitle = driver.getTitle();
         Assert.assertEquals(actualTitle,expectedTitle);
     }
+
+    public static void loginVytrack(){
+        String username = ConfigurationReader.getProperty("username");
+        String password = ConfigurationReader.getProperty("password");
+
+        Driver.getDriver().get(ConfigurationReader.getProperty("env"));
+        Driver.getDriver().findElement(By.xpath("//input[@id='prependedInput']")).sendKeys(username);
+        Driver.getDriver().findElement(By.xpath("//input[@id='prependedInput2']")).sendKeys(password);
+
+        Driver.getDriver().findElement(By.xpath("//button[@id='_submit']")).click();
+
+    }
+
 }
