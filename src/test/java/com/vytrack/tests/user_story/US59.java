@@ -29,7 +29,7 @@ public class US59 {
         WebElement repeatField = Driver.getDriver().findElement(By.xpath("//label[@class='fields-row']/input[3]"));
         repeatField.click();
         repeatField.click();
-        Assert.assertEquals(repeatField.getAttribute("value"), "2");
+        Assert.assertEquals(repeatField.getAttribute("value"), "1");
 
         Driver.closeDriver();
     }
