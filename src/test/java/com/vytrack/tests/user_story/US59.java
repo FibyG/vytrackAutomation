@@ -9,7 +9,7 @@ import org.testng.annotations.Test;
 
 public class US59 {
 
-    @Test
+    @Test(priority = 1)
     public void tc1(){
         //logs into vytrack environment
         BrowserUtils.loginVytrack();
@@ -21,20 +21,22 @@ public class US59 {
         createEventBtn.click();
 
         //selects the repeat checkbox
-        WebElement checkbox = Driver.getDriver().findElement(By.xpath("//input[@data-name='recurrence-repeat']"));
-        checkbox.click();
-        checkbox.isSelected();
+        WebElement checkbox = Driver.getDriver().findElement(By.xpath("//div[@class='controls']/input[@type='checkbox'][@data-name='recurrence-repeat']"));
+        if(checkbox.isSelected()){
+            System.out.println("checkbox already selected");
+        }else{
+            checkbox.click();
+        }
 
         //compares the default value of the text box with expected value
         WebElement repeatField = Driver.getDriver().findElement(By.xpath("//label[@class='fields-row']/input[3]"));
         repeatField.click();
         repeatField.click();
         Assert.assertEquals(repeatField.getAttribute("value"), "1");
-
         Driver.closeDriver();
     }
 
-    @Test
+    @Test(priority = 2)
     public void tc2(){
         //logs into vytrack environment
         BrowserUtils.loginVytrack();
@@ -47,9 +49,12 @@ public class US59 {
         createEventBtn.click();
 
         //selects the repeat checkbox
-        WebElement checkbox = Driver.getDriver().findElement(By.xpath("//input[@data-name='recurrence-repeat']"));
-        checkbox.click();
-        checkbox.isSelected();
+        WebElement checkbox = Driver.getDriver().findElement(By.xpath("//div[@class='controls']/input[@type='checkbox'][@data-name='recurrence-repeat']"));
+        if(checkbox.isSelected()){
+            System.out.println("checkbox already selected");
+        }else{
+            checkbox.click();
+        }
 
         //clears the value of the "repeat every" text box
         WebElement repeatField = Driver.getDriver().findElement(By.xpath("//label[@class='fields-row']/input[3]"));
