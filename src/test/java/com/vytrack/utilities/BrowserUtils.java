@@ -27,6 +27,7 @@ public class BrowserUtils {
         Assert.assertEquals(actualTitle,expectedTitle);
     }
 
+    //logs into Vytrack test environment
     public static void loginVytrack(){
         String username = ConfigurationReader.getProperty("username");
         String password = ConfigurationReader.getProperty("password");
@@ -37,6 +38,16 @@ public class BrowserUtils {
 
         Driver.getDriver().findElement(By.xpath("//button[@id='_submit']")).click();
 
+    }
+
+
+    //navigates calendar event page after login
+    public static void calendarEventsPage(){
+        WebElement calendarEventLink = Driver.getDriver().findElement(By.xpath("//a[@href='/calendar/event']/span"));
+        WebElement activities = Driver.getDriver().findElement(By.xpath("//li[@class='dropdown dropdown-level-1'][3]/a/span"));
+
+        activities.click();
+        calendarEventLink.click();
     }
 
 }
