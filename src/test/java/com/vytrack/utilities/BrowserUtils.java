@@ -15,7 +15,9 @@ public class BrowserUtils {
             System.out.println("Exception happened in sleep method");
         }
     }
-    //  Method info:
+
+//  Method info:
+
 //  Name: verifyTitle()
 //• Return type: void
 //• Arg1: WebDriver
