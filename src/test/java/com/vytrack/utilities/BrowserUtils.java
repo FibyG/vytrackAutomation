@@ -41,13 +41,10 @@ public class BrowserUtils {
     }
 
 
-    //navigates calendar event page after login
+    //navigates vytrack calendar event page from home page
     public static void calendarEventsPage(){
-        WebElement calendarEventLink = Driver.getDriver().findElement(By.xpath("//a[@href='/calendar/event']/span"));
-        WebElement activities = Driver.getDriver().findElement(By.xpath("//li[@class='dropdown dropdown-level-1'][3]/a/span"));
-
-        activities.click();
-        calendarEventLink.click();
+        Driver.getDriver().findElement(By.xpath("//a[@href='/calendar/event']/span")).click();
+        Driver.getDriver().findElement(By.xpath("//li[@class='dropdown dropdown-level-1'][3]/a/span")).click();
     }
 
 }
