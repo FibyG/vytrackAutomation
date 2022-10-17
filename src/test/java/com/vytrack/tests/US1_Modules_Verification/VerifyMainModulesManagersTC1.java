@@ -1,121 +1,41 @@
 package com.vytrack.tests.US1_Modules_Verification;
 
-import com.vytrack.utilities.WebDriverFactory;
+import com.vytrack.tests.base.TestBase;
+import com.vytrack.utilities.ConfigurationReader;
+import com.vytrack.utilities.VYTrack_Login;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.testng.Assert;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+import java.util.ArrayList;
+import java.util.List;
 
-import java.util.concurrent.TimeUnit;
 
-public class VerifyMainModulesManagersTC1 {
-    WebDriver driver;
-
-    @BeforeMethod
-    public void setUp() {
-        driver = WebDriverFactory.getDriver("Chrome");
-        driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-    }
+public class VerifyMainModulesManagersTC1 extends TestBase {
 
     @Test
     public void test1() {
-        driver.get("https://qa2.vytrack.com/user/login");
+        driver.get(ConfigurationReader.getProperty("env"));
         // Step 1 - Log in with correct credentials.
-        WebElement usernameInput = driver.findElement(By.xpath("//input[@id='prependedInput']"));
-        usernameInput.sendKeys("storemanager79");
-        WebElement passwordInput = driver.findElement(By.xpath("//input[@id='prependedInput2']"));
-        passwordInput.sendKeys("UserUser123");
-        WebElement loginButton = driver.findElement(By.xpath("//button[@type='submit']"));
-        loginButton.click();
+        VYTrack_Login.vy_login(driver, ConfigurationReader.getProperty("username.store_manager1"), ConfigurationReader.getProperty("password"));
 
-        // Step 2 - Verify managers should view all 8 modules names:
-        //1) Dashboards:
-        WebElement verifyDashboards = driver.findElement(By.xpath("(//span[@class='title title-level-1'])[1]"));
-        // verifyDashboards.isDisplayed();
-        Assert.assertTrue(verifyDashboards.isDisplayed(), "Verify managers can see 8 modules FAILED!");
+        // Step 2 - Verify store managers should view all 8 modules names:
 
-        //2) Fleet:
-        WebElement verifyFleets = driver.findElement(By.xpath("(//span[@class='title title-level-1'])[2]"));
-        Assert.assertTrue(verifyFleets.isDisplayed(), "Verify managers can see 8 modules FAILED!");
-
-        //3) Customers:
-        WebElement verifyCustomer = driver.findElement(By.xpath("(//span[@class='title title-level-1'])[3]"));
-        Assert.assertTrue(verifyCustomer.isDisplayed(), "Verify managers can see 8 modules FAILED!");
-
-        //4) Sales:
-        WebElement verifySales = driver.findElement(By.xpath("(//span[@class='title title-level-1'])[4]"));
-        Assert.assertTrue(verifySales.isDisplayed(), "Verify managers can see 8 modules FAILED!");
-
-        //5) Activities:
-        WebElement verifyActivities = driver.findElement(By.xpath("(//span[@class='title title-level-1'])[5]"));
-        Assert.assertTrue(verifyActivities.isDisplayed(), "Verify managers can see 8 modules FAILED!");
-
-        //6) Marketing:
-        WebElement verifyMarketing = driver.findElement(By.xpath("(//span[@class='title title-level-1'])[6]"));
-        Assert.assertTrue(verifyMarketing.isDisplayed(), "Verify managers can see 8 modules FAILED!");
-
-        //7) Reports & Segments:
-        WebElement verifyRepAndSeg = driver.findElement(By.xpath("(//span[@class='title title-level-1'])[7]"));
-        Assert.assertTrue(verifyRepAndSeg.isDisplayed(), "Verify managers can see 8 modules FAILED!");
-
-        //8) System:
-        WebElement verifySystem = driver.findElement(By.xpath("(//span[@class='title title-level-1'])[8]"));
-        Assert.assertTrue(verifySystem.isDisplayed(), "Verify managers can see 8 modules FAILED!");
-
+        List<WebElement> mainMenuModules = new ArrayList<>(driver.findElements(By.xpath("//ul[@class='nav-multilevel main-menu']/li")));
+        for (WebElement each : mainMenuModules) {
+            System.out.println(each.getText());
+        }
     }
     @Test
     public void test2() {
-        driver.get("https://qa2.vytrack.com/user/login");
+        driver.get(ConfigurationReader.getProperty("env"));
         // Step 1 - Log in with correct credentials.
-        WebElement usernameInput = driver.findElement(By.xpath("//input[@id='prependedInput']"));
-        usernameInput.sendKeys("salesmanager137");
-        WebElement passwordInput = driver.findElement(By.xpath("//input[@id='prependedInput2']"));
-        passwordInput.sendKeys("UserUser123");
-        WebElement loginButton = driver.findElement(By.xpath("//button[@type='submit']"));
-        loginButton.click();
+        VYTrack_Login.vy_login(driver, ConfigurationReader.getProperty("username.sales_manager1"), ConfigurationReader.getProperty("password"));
 
-        // Step 2 - Verify managers should view all 8 modules names:
-        //1) Dashboards:
-        WebElement verifyDashboards = driver.findElement(By.xpath("(//span[@class='title title-level-1'])[1]"));
-        // verifyDashboards.isDisplayed();
-        Assert.assertTrue(verifyDashboards.isDisplayed(), "Verify managers can see 8 modules FAILED!");
+        // Step 2 - Verify sales managers should view all 8 modules names:
 
-        //2) Fleet:
-        WebElement verifyFleets = driver.findElement(By.xpath("(//span[@class='title title-level-1'])[2]"));
-        Assert.assertTrue(verifyFleets.isDisplayed(),"Verify managers can see 8 modules FAILED!");
-
-        //3) Customers:
-        WebElement verifyCustomer = driver.findElement(By.xpath("(//span[@class='title title-level-1'])[3]"));
-        Assert.assertTrue(verifyCustomer.isDisplayed(), "Verify managers can see 8 modules FAILED!");
-
-        //4) Sales:
-        WebElement verifySales = driver.findElement(By.xpath("(//span[@class='title title-level-1'])[4]"));
-        Assert.assertTrue(verifySales.isDisplayed(), "Verify managers can see 8 modules FAILED!");
-
-        //5) Activities:
-        WebElement verifyActivities = driver.findElement(By.xpath("(//span[@class='title title-level-1'])[5]"));
-        Assert.assertTrue(verifyActivities.isDisplayed(), "Verify managers can see 8 modules FAILED!");
-
-        //6) Marketing:
-        WebElement verifyMarketing = driver.findElement(By.xpath("(//span[@class='title title-level-1'])[6]"));
-        Assert.assertTrue(verifyMarketing.isDisplayed(), "Verify managers can see 8 modules FAILED!");
-
-        //7) Reports & Segments:
-        WebElement verifyRepAndSeg = driver.findElement(By.xpath("(//span[@class='title title-level-1'])[7]"));
-        Assert.assertTrue(verifyRepAndSeg.isDisplayed(), "Verify managers can see 8 modules FAILED!");
-
-        //8) System:
-        WebElement verifySystem = driver.findElement(By.xpath("(//span[@class='title title-level-1'])[8]"));
-        Assert.assertTrue(verifySystem.isDisplayed(), "Verify managers can see 8 modules FAILED!");
-
-    }
-
-    @AfterMethod
-    public void TearDownMethod() {
-        driver.quit();
+        List<WebElement> mainMenuModules = new ArrayList<>(driver.findElements(By.xpath("//ul[@class='nav-multilevel main-menu']/li")));
+        for (WebElement each : mainMenuModules) {
+            System.out.println(each.getText());
+        }
     }
 }
