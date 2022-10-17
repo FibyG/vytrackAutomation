@@ -19,7 +19,5 @@ public class LoginFunction extends TestBase {
 
     BrowserUtils.verifyTitle(driver,"Dashboard");
 
-
-
-}
+    }
 }
