@@ -1,5 +1,6 @@
 package com.vytrack.utilities;
 
+import com.vytrack.tests.TS22_57_ViewEditDeleteIcons;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -7,7 +8,7 @@ import org.testng.annotations.Test;
 
 public class VY_Track_Login {
 
-//    @Test
+    @Test
     public void testTruckDriver() {
 
         testEmployee("truckDriver", 6);
@@ -15,10 +16,10 @@ public class VY_Track_Login {
 
     @Test
     public void testStoreManager() {
-        testEmployee("storeManager", 2);
+        testEmployee("storeManager", 4);
     }
 
-  //  @Test
+    @Test
     public void testSalesManager() {
         testEmployee("salesManager", 4);
     }
@@ -31,15 +32,15 @@ public class VY_Track_Login {
             String key = keyPrefix + i;
             String username = Configuration_Reader.getProperty(key);
             login(username, password);
-
+            //           TS22_57_ViewEditDeleteIcons.viewEditDeleteOptions();
+            logout();
         }
     }
 
     public static void login(String username, String password) {
         WebDriver driver = Driver.getDriver();
+        driver.get(Configuration_Reader.getProperty("app.url.qa"));
 
-        String appUrlQa = Configuration_Reader.getProperty("app.url.qa");
-        driver.get(appUrlQa);
 
         WebElement inputUserName = driver.findElement(By.xpath("//input[@id='prependedInput']"));
         inputUserName.sendKeys(username);
@@ -50,6 +51,12 @@ public class VY_Track_Login {
         WebElement loginBtn = driver.findElement(By.xpath("//button[@id='_submit']"));
         loginBtn.click();
 
+        BrowserUtils.sleep(4);
+        BrowserUtils.verifyTitle(driver, "Dashboard");
+    }
+
+    public static void logout() {
+        Driver.closeDriver();
     }
 
 }
