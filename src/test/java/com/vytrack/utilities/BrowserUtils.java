@@ -29,7 +29,7 @@ public class BrowserUtils {
 
     //logs into Vytrack test environment
     public static void loginVytrack(){
-        String username = ConfigurationReader.getProperty("username");
+        String username = ConfigurationReader.getProperty("username.driver1");
         String password = ConfigurationReader.getProperty("password");
 
         Driver.getDriver().get(ConfigurationReader.getProperty("env"));
