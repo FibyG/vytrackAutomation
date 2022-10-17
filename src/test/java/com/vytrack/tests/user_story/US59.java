@@ -1,7 +1,8 @@
 package com.vytrack.tests.user_story;
 
-import com.vytrack.utilities.BrowserUtils;
+import com.vytrack.utilities.ConfigurationReader;
 import com.vytrack.utilities.Driver;
+import com.vytrack.utilities.VYTrack_Login;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
@@ -12,9 +13,13 @@ public class US59 {
     @Test(priority = 1)
     public void tc1(){
         //logs into vytrack environment
-        BrowserUtils.loginVytrack();
+        Driver.getDriver().get(ConfigurationReader.getProperty("env"));
+        VYTrack_Login.vy_login(Driver.getDriver(), ConfigurationReader.getProperty("username.driver1"), ConfigurationReader.getProperty("password"));
         //goes to the calendar event page
-        BrowserUtils.calendarEventsPage();
+        WebElement calendarEventsLink = Driver.getDriver().findElement(By.xpath("//a[@href='/calendar/event']/span"));
+        WebElement activities = Driver.getDriver().findElement(By.xpath("//li[@class='dropdown dropdown-level-1'][3]/a/span"));
+        activities.click();
+        calendarEventsLink.click();
 
         //click create new event button
         WebElement createEventBtn = Driver.getDriver().findElement(By.xpath("//a[@class='btn main-group btn-primary pull-right ']"));
@@ -39,10 +44,14 @@ public class US59 {
     @Test(priority = 2)
     public void tc2(){
         //logs into vytrack environment
-        BrowserUtils.loginVytrack();
+        Driver.getDriver().get(ConfigurationReader.getProperty("env"));
+        VYTrack_Login.vy_login(Driver.getDriver(), ConfigurationReader.getProperty("username.driver1"), ConfigurationReader.getProperty("password"));
 
         //goes to the calendar event page
-        BrowserUtils.calendarEventsPage();
+        WebElement calendarEventsLink = Driver.getDriver().findElement(By.xpath("//a[@href='/calendar/event']/span"));
+        WebElement activities = Driver.getDriver().findElement(By.xpath("//li[@class='dropdown dropdown-level-1'][3]/a/span"));
+        activities.click();
+        calendarEventsLink.click();
 
         //click create new event button
         WebElement createEventBtn = Driver.getDriver().findElement(By.xpath("//a[@class='btn main-group btn-primary pull-right ']"));
