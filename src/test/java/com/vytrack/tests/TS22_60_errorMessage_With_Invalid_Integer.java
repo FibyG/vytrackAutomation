@@ -15,13 +15,7 @@ public class TS22_60_errorMessage_With_Invalid_Integer extends TestBase {
 
     @Test
     public void errorMessage_With_Invalid_Integer() {
-//        driver.get("https://qa1.vytrack.com/user/login");
-//
-//        WebElement userName = driver.findElement(By.name("_username"));
-//        userName.sendKeys("storemanager79");
-//
-//        WebElement password = driver.findElement(By.name("_password"));
-//        password.sendKeys("UserUser123" + Keys.ENTER);
+
         driver.get(ConfigurationReader.getProperty("env"));
 
         VYTrack_Login.vy_login(driver,ConfigurationReader.getProperty("username.store_manager1"),ConfigurationReader.getProperty("password"));
