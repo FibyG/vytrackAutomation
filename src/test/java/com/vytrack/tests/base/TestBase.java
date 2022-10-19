@@ -8,18 +8,17 @@ import org.testng.annotations.BeforeMethod;
 import java.util.concurrent.TimeUnit;
 
 public class TestBase {
-    public WebDriver driver;
-
+    protected WebDriver driver;
     @BeforeMethod
-    public void setUp() {
-        driver = WebDriverFactory.getDriver("chrome");
+    public void setUpMethod(){
+        driver = WebDriverFactory.getDriver("Chrome");
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+
     }
 
     @AfterMethod
-    public void tearDown() {
-
+    public void tearDown(){
         driver.quit();
     }
 }
