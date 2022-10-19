@@ -1,6 +1,9 @@
 package com.vytrack.tests.NadiasUS;
 
 
+import com.vytrack.tests.base.TestBase;
+import com.vytrack.utilities.ConfigurationReader;
+import com.vytrack.utilities.VYTrack_Login;
 import com.vytrack.utilities.WebDriverFactory;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -12,31 +15,13 @@ import org.testng.annotations.Test;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
-public class NadiaPracticeProject {
-    WebDriver driver;
-
-    @BeforeMethod
-    public void setUp(){
-        //1. Open a chrome browser
-        driver = WebDriverFactory.getDriver("chrome");
-        driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(3000, TimeUnit.SECONDS);
-
-        //2. Go to https://qa1.vytrack.com/user/login
-        driver.get("https://qa1.vytrack.com/user/login");
-    }
+public class NadiaPracticeProject extends TestBase {
 
     @Test
     public void TC1()throws InterruptedException{
 
-
-        // 1. User logs in with valid credentials.
-        WebElement usernameBtn = driver.findElement(By.xpath("//input[@id='prependedInput']"));
-        usernameBtn.sendKeys("storemanager79");
-        WebElement passwordBtn = driver.findElement(By.id("prependedInput2"));
-        passwordBtn.sendKeys("UserUser123");
-        WebElement LoginBtn = driver.findElement(By.xpath("//button[@id='_submit']"));
-        LoginBtn.click();
+        driver.get(ConfigurationReader.getProperty("env"));
+        VYTrack_Login.vy_login(driver,ConfigurationReader.getProperty("username.store_manager2"),ConfigurationReader.getProperty("password"));
 
         Thread.sleep(3000);
 
@@ -77,14 +62,8 @@ public class NadiaPracticeProject {
 
         @Test
         public void TC2()throws InterruptedException{
-            WebElement usernameBtn = driver.findElement(By.xpath("//input[@id='prependedInput']"));
-            usernameBtn.sendKeys("storemanager79");
-            WebElement passwordBtn = driver.findElement(By.id("prependedInput2"));
-            passwordBtn.sendKeys("UserUser123");
-            WebElement LoginBtn = driver.findElement(By.xpath("//button[@id='_submit']"));
-            LoginBtn.click();
-
-            Thread.sleep(3000);
+        driver.get(ConfigurationReader.getProperty("env"));
+        VYTrack_Login.vy_login(driver,ConfigurationReader.getProperty("username.store_manager2"),ConfigurationReader.getProperty("password"));
 
             //2.Fleet
             //WebElement FleetMenu = driver.findElement(By.xpath("//span[@class='title title-level-1'])[2]"));
