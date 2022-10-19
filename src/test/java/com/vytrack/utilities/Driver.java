@@ -11,23 +11,31 @@ public class Driver {
 
     private Driver(){}
 
+
     private static WebDriver driver;
 
     public static WebDriver getDriver(){
+
+
         if(driver==null){
             String browsertype = ConfigurationReader.getProperty("browser");
             switch (browsertype){
+
                 case "chrome":
                     WebDriverManager.chromedriver().setup();
                     driver = new ChromeDriver();
                     driver.manage().window().maximize();
-                    driver.manage().timeouts().implicitlyWait(4, TimeUnit.SECONDS);
+
+                    driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+
                     break;
                 case "firefox":
                     WebDriverManager.firefoxdriver().setup();
                     driver = new FirefoxDriver();
                     driver.manage().window().maximize();
-                    driver.manage().timeouts().implicitlyWait(4, TimeUnit.SECONDS);
+
+                    driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+
                     break;
             }
         }
@@ -35,12 +43,13 @@ public class Driver {
     }
 
 
+
     public static void closeDriver(){
         if(driver != null ){
+
             driver.quit();
             driver = null;
         }
     }
-
 
 }
