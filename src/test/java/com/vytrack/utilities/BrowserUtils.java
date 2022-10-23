@@ -1,6 +1,9 @@
 package com.vytrack.utilities;
 
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
 public class BrowserUtils {
@@ -18,6 +21,11 @@ public class BrowserUtils {
         String actualTitle = driver.getTitle();
 
         Assert.assertEquals(actualTitle, expectedTitle);
+    }
+
+    public static void waitForInvisibilityOf(WebElement element) {
+        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 15);
+        wait.until(ExpectedConditions.invisibilityOf(element));
     }
 
 }
