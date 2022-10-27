@@ -1,30 +1,53 @@
 package com.vytrack.utilities;
 
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
 public class BrowserUtils {
-    //Methods are static because we do not want ot create an object to use these methods. We will call this methods by class name.
-    //how you all this method. BrowserUtils. sleep(3);
-    public static void sleep(int seconds) {
-        try {
+    //Methods are static. Because we do not want to create an object to call those methods.
+    // We just want to call those methods with class name. That is why they are static type
 
-            Thread.sleep(seconds * 1000);
-        } catch (InterruptedException e) {
+
+    /**
+     * This method is used to pause the code for given seconds
+     * It is static method we can call with class name
+     * BrowserUtils.sleep(3);
+     * @param seconds
+     */
+    public static void sleep(int seconds){
+        // 1 second = 1000 millis
+        // millis = seconds*1000
+
+        try {
+            Thread.sleep(seconds*1000);
+        }catch(InterruptedException e){
             e.printStackTrace();
-            System.out.println("Exception happened in sleep method");
+            System.out.println("Exception happened in sleep method!");
         }
+
     }
 
-//  Method info:
 
-//  Name: verifyTitle()
-//• Return type: void
-//• Arg1: WebDriver
-//• Arg2: String expectedTitle
+    //Method info:
+    //• Name: verifyTitle()
+    //• Return type: void
+    //• Arg1: WebDriver
+    //• Arg2: String expectedTitle
+    //. BrowserUtils.verifyTitle(driver, "google")
     public static void verifyTitle(WebDriver driver, String expectedTitle){
         String actualTitle = driver.getTitle();
-        Assert.assertEquals(actualTitle,expectedTitle);
+        Assert.assertEquals(actualTitle, expectedTitle);
+
     }
 
+    public static void waitExplecit(WebElement element){
+        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 10);
+        wait.until(ExpectedConditions.visibilityOf(element));
+
+
+    }
 }
