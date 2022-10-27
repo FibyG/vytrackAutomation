@@ -4,7 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-public class VYTrack_Login {
+public class VYTrack_Utils {
     public static void vy_login(WebDriver driver, String username, String password){
         WebElement inputUserName = driver.findElement(By.xpath("//input[@id='prependedInput']"));
         inputUserName.sendKeys(username);

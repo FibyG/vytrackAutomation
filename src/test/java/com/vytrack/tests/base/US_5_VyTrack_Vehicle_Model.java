@@ -38,7 +38,6 @@ public class US_5_VyTrack_Vehicle_Model {
     }
 
     @Test
-
     public void view_column_on_vehicle_module_driver_1(){
         vyTrackVehicleLoginPage.inputUserName.sendKeys(ConfigurationReader.getProperty("username.driver1"));
         vyTrackVehicleLoginPage.inputPassword.sendKeys(ConfigurationReader.getProperty("password"));
